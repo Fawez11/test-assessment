@@ -1,6 +1,6 @@
 const express = require('express')
-// const db = require('./db-mysql/index.js')
-// const factoryRoutes = require("./routes/factoryRoutes.js")
+const db = require('./db-mysql/index.js')
+const usersRoutes = require("./routes/usersRoutes.js")
 const PORT = 3000
 const app = express()
 
@@ -9,7 +9,7 @@ const app = express()
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/../client/dist'))
-// app.use("/api/factories",factoryRoutes)
+app.use("/api/users",usersRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`)
